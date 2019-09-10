@@ -5,7 +5,7 @@
     }
     include 'funcoes/conexao.php';
     $con = getConexao();
-    $sql = "select * from tipo order by tipo.id";
+    $sql = "select * from equipamento order by equipamento.id";
         if(isset($_POST['bt'])){
             $palavra=$_POST['palavra'];
             $sql = "select tipo.*,equipamento.descricao, equipamento.id as equipamento from equipamento,tipo where equipamento.idtipo =tipo.id and nome like '%".$palavra."%' order by .id";

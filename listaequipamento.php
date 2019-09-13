@@ -8,8 +8,7 @@
     $sql = "select * from equipamento";
         if(isset($_POST['bt'])){
             $palavra=$_POST['palavra'];
-            $sql = "select equipamento.*,tipo.descricao, equipamento.id as idequipamento from equipamento,tipo where equipamento.idtipo =tipo.id and nome like '%".$palavra."%' order by equipamento.id";
-            
+            $sql = "select * from equipamento where nome_host like '%".$palavra."%' or marca like '%".$palavra."%'  order by equipamento.id";
         }
     $rs = mysqli_query($con,$sql);
 ?>
@@ -29,6 +28,8 @@
             <tr>
                 <th>ID</th>
                 <th>NOME HOST</th>
+                <th>MARCA</th>
+                <th>MODELO</th>
                 <th>IP</th>
                 <th>PROCESSADOR</th>
                 <th>MEMORIA</th>
@@ -45,6 +46,8 @@
             while($row=mysqli_fetch_array($rs)){
             $id=$row['id'];
             $nome_host=$row['nome_host'];
+            $marca=$row['marca'];
+            $modelo=$row['modelo'];
             $ip=$row['ip'];
             $processador=$row['processador'];
             $memoria=$row['memoria'];
@@ -57,10 +60,13 @@
                 <tr>
                     <td><?=$id;?></td>
                     <td><?=$nome_host;?></td>
+                    <td><?=$marca;?></td>
+                    <td><?=$modelo;?></td>
                     <td><?=$ip;?></td>
                     <td><?=$processador;?></td>
                     <td><?=$memoria;?></td>
                     <td><?=$patrimonial;?></td>
+              
                     <td><?=$dominio;?></td>
                     <td><?=$status;?></td>
                     <td><?=$descricao;?></td>

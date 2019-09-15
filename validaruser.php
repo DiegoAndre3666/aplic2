@@ -11,7 +11,7 @@
     if($row = mysqli_fetch_array($rs)){
      $_SESSION['id'] = $row['id'];
      $_SESSION['nome'] = $row['nome'];
-     header("location: listaequipamento.php");
+     header("location: menu.php");
     }else{
         header("location: login.php");
     }

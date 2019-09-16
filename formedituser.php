@@ -7,17 +7,18 @@ session_start();
 	}
 	include 'funcoes/conexao.php';
 	$id = $_GET['id'];
-	$con = getConexao();
-	$sql = "select * from usuario where id = $id";
+	
+	$sql = "select * from usuarios where id = $id";
 	
 	$rs  = mysqli_query($con,$sql);
 	
 	
 		while($row = mysqli_fetch_array($rs)){
-			$nome = $row ['nome'];
-			$email = $row ['email'];
-            $fone = $row ['ramal'];
-            $fone = $row ['dpto'];
+			$nome=$row['nome'];
+			$email=$row['email'];
+            $ramal=$row['ramal'];
+			$acesso=$row['acesso'];
+			$iddpto=$row['iddpto'];
 			
 			break;
         }
@@ -33,19 +34,19 @@ session_start();
 
 		<table>
 			<tr><td>Id </td><td><input type= "text" name= "id" value= "<?=$id;?>"/> </td></tr>
-			<tr><td>Nome </td><td><input type= "text" name= "nome" value= "<?=$nome;?>"/> </td></tr>
-			<tr><td>Email </td><td><input type= "text" name= "email" value= "<?=$email;?>"/> </td></tr>
-			<tr><td>Ramal </td><td><input type= "text" name= "Ramal" value= "<?=$ramal;?>"/> </td></tr>
-            <tr><td>Departamento </td><td><input type= "text" name= "dpto" value= "<?=$Nome;?>"/> </td></tr>
+			<tr><td>Nome </td><td><input type= "text" name= "nome" value= "<?=$nome;?>" required/> </td></tr>
+			<tr><td>Email </td><td><input type= "text" name= "email" value= "<?=$email;?>" required/> </td></tr>
+			<tr><td>Ramal </td><td><input type= "text" name= "ramal" value= "<?=$ramal;?>"/> </td></tr>
+            <tr><td>Acesso </td><td><input type= "text" name= "acesso" value= "<?=$acesso;?>"/> </td></tr>
 			
-			<tr><td>Departamento</td><td><select name="idcurso" class="browser-defalt">
+			<tr><td>Departamento</td><td><select name="iddpto" class="browser-defalt">
 			<?php
                     while ($row = mysqli_fetch_array($rs2))
 					{
 						$id = $row['id'];
-						$Nome = $row['dpto'];
+						$Nome = $row['Nome'];
 						
-						if($id !=$id){
+						if($id !=$iddpto){
 							
 							echo "<option value=".$id.">".$Nome."</option>";
 

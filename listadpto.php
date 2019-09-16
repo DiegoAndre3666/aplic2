@@ -4,8 +4,8 @@
         header("location: logout.php");
     }
     include 'funcoes/conexao.php';
-    $con = getConexao();
-    $sql = "select * from dpto";
+    
+   
         if(isset($_POST['bt'])){
             $palavra=$_POST['palavra'];
             $sql = "select * from equipamento where nome_host like '%".$palavra."%' or marca like '%".$palavra."%'  order by equipamento.id";

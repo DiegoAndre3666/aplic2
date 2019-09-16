@@ -4,7 +4,7 @@
         header("location: logout.php");
     }
     include 'funcoes/conexao.php';
-    $con = getConexao();
+  
     $sql = "insert into";
         if(isset($_POST['bt'])){
             $palavra=$_POST['palavra'];

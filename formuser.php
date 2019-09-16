@@ -1,10 +1,10 @@
-<<?php
+<?php
 session_start();
 if(!isset($_SESSION['id'])){
     header("location: logout.php");
 }
 include 'funcoes/conexao.php';
-$con = getConexao();
+
 $sql = "select usuarios.*,dpto.* from usuarios,dpto where usuarios.iddpto = dpto.id order by usuarios.id";
     if(isset($_POST['bt'])){
         $palavra=$_POST['palavra'];
@@ -32,7 +32,7 @@ $sql2 = "select * from dpto order by Nome";
                 </tr>
                 <tr>
                     <td>Ramal </td>
-                    <td><input name="Ramal" type="text"> </td>
+                    <td><input name="ramal" type="text"> </td>
                 </tr>
                 <tr>
                     <td>Nivel de Acesso </td>
@@ -43,7 +43,7 @@ $sql2 = "select * from dpto order by Nome";
                         Departamento
                     </td>
                     <td>
-                        <select dpto="id">
+                        <select name="id">
                             <?php
                                 while($row = mysqli_fetch_array($rs2)) {
                                     $id=$row['id'];

@@ -4,7 +4,7 @@
         header("location: logout.php");
     }
     include 'funcoes/conexao.php';
-    $con = getConexao();
+ 
     
     $sql = "select usuarios.*,dpto.Nome, usuarios.id as iduser from usuarios,dpto where usuarios.iddpto=dpto.id order by usuarios.nome";
         if(isset($_POST['bt'])){
@@ -58,7 +58,7 @@
                     <td><?=$Nome;?></td>
 
                     <td><a href="excluiralunos.php?id=<?=$id;?>"><i class="material-icons ">delete</i></a></li></a></td>
-                    <td><a href="formedit.php?id=<?=$id;?>"><i class="material-icons ">edit</i></a></li></a></td>
+                    <td><a href="formedituser.php?id=<?=$id;?>"><i class="material-icons ">edit</i></a></li></a></td>
                 </tr>
                 <?php
             

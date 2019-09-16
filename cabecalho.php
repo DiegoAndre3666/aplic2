@@ -1,9 +1,10 @@
 <?php
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head><title></title>
-      <meta charset="utf-8">
+     
 
       <!--Import Javascript -->
       <script src="js/jquery.min.js"></script>

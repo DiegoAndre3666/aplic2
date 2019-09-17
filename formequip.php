@@ -39,7 +39,7 @@ $sql2 = "select * from tipo order by nome";
 ?>
 <div class="container">
         <h2>Incluir novo Equipamento </h2>
-        <form class='form-control' action="gravaequip.php" method="post">
+        <form class='form-control' action="gravaequip.php" method = "post" >
             <table>
                 <tr>
                     <td>Tipo do Equipamento</td>
@@ -68,19 +68,13 @@ $sql2 = "select * from tipo order by nome";
                     
                 ?>
                         <tr>
-                        <form class="form-control">    
                             <td><?php echo $row3['nomecampo']; ?></td>
                             <td><input name="<?php echo $row3['campo']; ?>" type="text" required /> </td>
                         </tr>
-                        </form>
                 <?php }
                     }
-                if($funcao=='abrir'){
-
-                ?>
-                
-                <tr>
-
+                if($funcao=='abrir'){?>
+                    <tr>
                     <td></td>
                     <td><input class="btn" name="bt" type="submit" value="gravar"/> </td>
                 </tr>

@@ -6,8 +6,8 @@
 <!-- MENUS DROPDOWNS -->
 
 <ul id="itens_menu_cadastro" class="dropdown-content">
-  <li><a href="cadastroequipamentos.php">Cadastro de Equipamentos</a></li>
-  <li><a href="cadastrosoftware.php">Cadastro de Software</a></li>
+  <li><a href="formequip.php">Cadastro de Equipamentos</a></li>
+  <li><a href="formsoftware.php">Cadastro de Software</a></li>
   <li class="divider"></li>
   <li><a href="menu.php">Cadastro de Usuários</a></li>
 </ul>

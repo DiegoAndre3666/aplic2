@@ -17,7 +17,7 @@ include 'menubar.php';
 	    	<div class="card blue-grey darken-1">
 				<div class="card-content white-text">
                     <span class="card-title">Cadastros</span>
-		     			<a href="formequipamento.php" class="waves-effect waves-light btn-large"><i class="material-icons left">devices_other</i>Equipamentos</a><br><br>
+		     			<a href="formequip.php" class="waves-effect waves-light btn-large"><i class="material-icons left">devices_other</i>Equipamentos</a><br><br>
                     	<a  href="formsoftware.php" class="waves-effect waves-light btn-large"><i class="material-icons left">event_note</i>Software</a><br><br>
 						<a  href="formdpto.php" class="waves-effect waves-light btn-large"><i class="material-icons left">location_city</i>Departamento</a><br><br>
 						<a  href="formuser.php" class="waves-effect waves-light btn-large"><i class="material-icons left">person</i>Usuários</a><br><br>

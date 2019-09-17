@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Set-2019 às 18:31
+-- Generation Time: 17-Set-2019 às 22:29
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -21,6 +21,77 @@ SET time_zone = "+00:00";
 --
 -- Database: `diego_inventario`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `campoform`
+--
+
+CREATE TABLE `campoform` (
+  `idtipo` int(11) NOT NULL,
+  `campo` varchar(30) NOT NULL,
+  `nomecampo` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `campoform`
+--
+
+INSERT INTO `campoform` (`idtipo`, `campo`, `nomecampo`) VALUES
+(0, '', ''),
+(1, 'descricao', 'Descrição'),
+(1, 'dominio', 'Domínio'),
+(1, 'marca', 'Marca'),
+(1, 'memoria', 'Memória'),
+(1, 'modelo', 'Modelo'),
+(1, 'nome_host', 'Nome Host'),
+(1, 'patrimonial', 'Patrimonial'),
+(1, 'processador', 'Processador'),
+(1, 'serial', 'Serial'),
+(1, 'servicetag', 'Service Tag'),
+(1, 'status', 'Status'),
+(1, 'tag', 'TAG'),
+(1, 'tamanhoarmazenamento', 'Tamanho do Armazenamento'),
+(1, 'tipoarmazenamento', 'Tipo de Armazenamento'),
+(1, 'ventrada', 'Voltagem de Entrada'),
+(2, 'descricao', 'Descrição'),
+(2, 'ip', 'IP'),
+(2, 'marca', 'Marca'),
+(2, 'modelo', 'Modelo'),
+(2, 'proprietario', 'Proprietário'),
+(2, 'serial', 'Serial'),
+(2, 'status', 'Status'),
+(2, 'Ventrada', 'Voltagem de Entrada'),
+(3, 'descricao', 'Descrição'),
+(3, 'ip', 'IP'),
+(3, 'marca', 'Marca'),
+(3, 'modelo', 'Modelo'),
+(3, 'nome_host', 'Nome Switch'),
+(3, 'portas', 'Portas'),
+(3, 'servicetag', 'Service Tag'),
+(3, 'status', 'Status'),
+(3, 'Ventrada', 'Voltagem de Entrada'),
+(4, 'descricao', 'Descrição'),
+(4, 'DTcompra', 'Data da Compra'),
+(4, 'DTinstalacao', 'Data da Instalação'),
+(4, 'DTultManut', 'Data da Última Manutenção'),
+(4, 'ip', 'IP'),
+(4, 'KVA', 'KVA'),
+(4, 'marca', 'Marca'),
+(4, 'modelo', 'Modelo'),
+(4, 'nome_host', 'Nome_Host'),
+(4, 'serial', 'Serial'),
+(4, 'status', 'Status'),
+(4, 'Ventrada', 'Voltagem de Entrada'),
+(4, 'Vsaida', 'Voltagem de Saída'),
+(6, 'chaveRSA', 'Chave RSA'),
+(6, 'ip', 'IP'),
+(6, 'marca', 'Marca'),
+(6, 'modelo', 'Modelo'),
+(6, 'patrimonial', 'Patrimonial'),
+(6, 'serial', 'Número de Serie'),
+(6, 'status', 'Status');
 
 -- --------------------------------------------------------
 
@@ -81,16 +152,25 @@ CREATE TABLE `equipamento` (
   `NF` int(100) DEFAULT NULL,
   `serial` int(100) NOT NULL,
   `idtipo` int(11) NOT NULL,
-  `Portas` int(20) DEFAULT NULL,
-  `iddpto` int(11) NOT NULL
+  `portas` int(20) DEFAULT NULL,
+  `iddpto` int(11) NOT NULL,
+  `tipoarmazenamento` varchar(30) NOT NULL,
+  `tamanhoarmazenamento` varchar(30) NOT NULL,
+  `KVA` int(11) NOT NULL,
+  `Ventrada` int(5) NOT NULL,
+  `Vsaida` int(5) NOT NULL,
+  `DTcompra` date NOT NULL,
+  `DTinstalacao` date NOT NULL,
+  `DTultManut` date NOT NULL,
+  `chaveRSA` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `equipamento`
 --
 
-INSERT INTO `equipamento` (`id`, `nome_host`, `ip`, `processador`, `memoria`, `patrimonial`, `dominio`, `status`, `iduser`, `descricao`, `marca`, `modelo`, `servicetag`, `NF`, `serial`, `idtipo`, `Portas`, `iddpto`) VALUES
-(1, 'ti08', '192.168.0.154', 'Intel Core I3', '4GB', '0322', 's', 'ativo', 1, 'Diego', 'Dell', 'Optiplex 3010', NULL, NULL, 0, 1, NULL, 1);
+INSERT INTO `equipamento` (`id`, `nome_host`, `ip`, `processador`, `memoria`, `patrimonial`, `dominio`, `status`, `iduser`, `descricao`, `marca`, `modelo`, `servicetag`, `NF`, `serial`, `idtipo`, `portas`, `iddpto`, `tipoarmazenamento`, `tamanhoarmazenamento`, `KVA`, `Ventrada`, `Vsaida`, `DTcompra`, `DTinstalacao`, `DTultManut`, `chaveRSA`) VALUES
+(1, 'ti08', '192.168.0.154', 'Intel Core I3', '4GB', '0322', 's', 'ativo', 1, 'Diego', 'Dell', 'Optiplex 3010', NULL, NULL, 0, 1, NULL, 1, '', '', 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -164,10 +244,11 @@ CREATE TABLE `tipo` (
 
 INSERT INTO `tipo` (`id`, `nome`) VALUES
 (1, 'Computador'),
-(2, 'impressora'),
+(2, 'Impressora'),
 (3, 'Swhitch'),
-(4, 'NoBrack'),
-(5, 'DVR');
+(4, 'NoBreack'),
+(5, 'DVR'),
+(6, 'Relógio Ponto');
 
 -- --------------------------------------------------------
 
@@ -197,6 +278,12 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `ramal`, `senha`, `acesso`, `iddp
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `campoform`
+--
+ALTER TABLE `campoform`
+  ADD PRIMARY KEY (`idtipo`,`campo`);
 
 --
 -- Indexes for table `dpto`
@@ -267,13 +354,13 @@ ALTER TABLE `software`
 -- AUTO_INCREMENT for table `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

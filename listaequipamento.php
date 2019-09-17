@@ -22,7 +22,7 @@
         <a class="btn" href='listaequipamento.php'>Cancelar</a>
 
         </form>
-        <a href="cadastroequipamentos.php"> + NOVO EQUIMMENTO </a>
+        <a href="formequip.php"> + NOVO EQUIMMENTO </a>
         <p></P>
         <table border="1">
             <tr>

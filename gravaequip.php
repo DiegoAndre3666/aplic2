@@ -1,6 +1,5 @@
 <?php
     include 'funcoes/conexao.php';
-var_dump($_POST);die();
 
     $nome_host = $_POST['nome_host'];
     $ip = $_POST['ip'];
@@ -28,9 +27,7 @@ var_dump($_POST);die();
     $chaveRSA = $_POST['chaveRSA'];
 
     $con = getConexao();
-    $sql= "insert 
-                into 
-            equipamento(
+    $sql = "insert into equipamento(
                     nome_host,
                     ip,
                     processador,
@@ -38,26 +35,32 @@ var_dump($_POST);die();
                     patrimonial,
                     dominio,
                     servicetag,
-                    marca,modelo,serial,NF,portas,descricao,status)
-            values(
-                '$nome_host',
-                '$ip',
-                '$processador',
-                '$memoria',
-                '$patrimonial',
-                '$dominio',
-                '$servicetag',
-                '$marca',
-                '$modelo',
-                '$serial',
-                '$NF',
-                '$portas',
-                '$descricao',
-                '$status')";
-    
-    die($sql);
-    mysqli_query($con,$sql);
-   
-    // header("Location: listaequipamento.php");
+                    marca,
+                    modelo,
+                    serial,
+                    NF,
+                    portas,
+                    descricao,
+                    status)values(
+                    '$nome_host',
+                    '$ip',
+                    '$processador',
+                    '$memoria',
+                    '$patrimonial',
+                    '$dominio',
+                    '$servicetag',
+                    '$marca',
+                    '$modelo',
+                    '$serial',
+                    '$NF',
+                    '$portas',
+                    '$descricao',
+                    '$status')";
+  
+    //mysqli_query($con,$sql);
+    if(!mysqli_query($con, $sql)){
+        echo ("Erro" . mysqli_errno($con));
+    }
+     header("Location: listaequipamento.php");
 
 ?>

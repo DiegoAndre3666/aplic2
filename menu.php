@@ -29,7 +29,7 @@ include 'menubar.php';
 	    	<div class="card blue-grey darken-1">
 				<div class="card-content white-text">
                     <span class="card-title">Consultas e Relatórios</span>
-		     			<a href="listaequipamento.php" class="waves-effect waves-light btn-large"><i class="material-icons left">assignment_ind</i>Relatório geral de Equipamentos</a><br><br>
+		     			<a href="listaequip.php" class="waves-effect waves-light btn-large"><i class="material-icons left">assignment_ind</i>Relatório geral de Equipamentos</a><br><br>
                     	<a  href="listasoftware.php" class="waves-effect waves-light btn-large"><i class="material-icons left">event_note</i>Listagem de Sofware</a><br><br>
 						<a  href="listadpto.php" class="waves-effect waves-light btn-large"><i class="material-icons left">assignment</i>Listagem de Departamentos</a><br><br>
 						<a  href="listauser.php" class="waves-effect waves-light btn-large"><i class="material-icons left">assignment_ind</i>Listagem de Usuários</a><br><br>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Set-2019 às 22:29
+-- Generation Time: 27-Set-2019 às 15:35
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -42,6 +42,7 @@ INSERT INTO `campoform` (`idtipo`, `campo`, `nomecampo`) VALUES
 (0, '', ''),
 (1, 'descricao', 'Descrição'),
 (1, 'dominio', 'Domínio'),
+(1, 'ip', 'IP'),
 (1, 'marca', 'Marca'),
 (1, 'memoria', 'Memória'),
 (1, 'modelo', 'Modelo'),
@@ -54,7 +55,7 @@ INSERT INTO `campoform` (`idtipo`, `campo`, `nomecampo`) VALUES
 (1, 'tag', 'TAG'),
 (1, 'tamanhoarmazenamento', 'Tamanho do Armazenamento'),
 (1, 'tipoarmazenamento', 'Tipo de Armazenamento'),
-(1, 'ventrada', 'Voltagem de Entrada'),
+(1, 'Ventrada', 'Voltagem de Entrada'),
 (2, 'descricao', 'Descrição'),
 (2, 'ip', 'IP'),
 (2, 'marca', 'Marca'),
@@ -143,34 +144,38 @@ CREATE TABLE `equipamento` (
   `memoria` varchar(40) DEFAULT NULL,
   `patrimonial` varchar(11) DEFAULT NULL,
   `dominio` varchar(4) DEFAULT NULL,
-  `status` varchar(40) NOT NULL,
+  `status` varchar(40) DEFAULT NULL,
   `iduser` int(11) DEFAULT NULL,
   `descricao` varchar(100) DEFAULT NULL,
-  `marca` varchar(45) NOT NULL,
-  `modelo` varchar(100) NOT NULL,
+  `marca` varchar(45) DEFAULT NULL,
+  `modelo` varchar(100) DEFAULT NULL,
   `servicetag` varchar(100) DEFAULT NULL,
   `NF` int(100) DEFAULT NULL,
-  `serial` int(100) NOT NULL,
-  `idtipo` int(11) NOT NULL,
+  `serial` int(100) DEFAULT NULL,
+  `idtipo` int(11) DEFAULT NULL,
   `portas` int(20) DEFAULT NULL,
-  `iddpto` int(11) NOT NULL,
-  `tipoarmazenamento` varchar(30) NOT NULL,
-  `tamanhoarmazenamento` varchar(30) NOT NULL,
-  `KVA` int(11) NOT NULL,
-  `Ventrada` int(5) NOT NULL,
-  `Vsaida` int(5) NOT NULL,
-  `DTcompra` date NOT NULL,
-  `DTinstalacao` date NOT NULL,
-  `DTultManut` date NOT NULL,
-  `chaveRSA` int(11) NOT NULL
+  `iddpto` int(11) DEFAULT NULL,
+  `tipoarmazenamento` varchar(30) DEFAULT NULL,
+  `tamanhoarmazenamento` varchar(30) DEFAULT NULL,
+  `KVA` int(11) DEFAULT NULL,
+  `Ventrada` int(5) DEFAULT NULL,
+  `Vsaida` int(5) DEFAULT NULL,
+  `DTcompra` date DEFAULT NULL,
+  `DTinstalacao` date DEFAULT NULL,
+  `DTultManut` date DEFAULT NULL,
+  `chaveRSA` int(11) DEFAULT NULL,
+  `tag` int(7) DEFAULT NULL,
+  `proprietario` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `equipamento`
 --
 
-INSERT INTO `equipamento` (`id`, `nome_host`, `ip`, `processador`, `memoria`, `patrimonial`, `dominio`, `status`, `iduser`, `descricao`, `marca`, `modelo`, `servicetag`, `NF`, `serial`, `idtipo`, `portas`, `iddpto`, `tipoarmazenamento`, `tamanhoarmazenamento`, `KVA`, `Ventrada`, `Vsaida`, `DTcompra`, `DTinstalacao`, `DTultManut`, `chaveRSA`) VALUES
-(1, 'ti08', '192.168.0.154', 'Intel Core I3', '4GB', '0322', 's', 'ativo', 1, 'Diego', 'Dell', 'Optiplex 3010', NULL, NULL, 0, 1, NULL, 1, '', '', 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', 0);
+INSERT INTO `equipamento` (`id`, `nome_host`, `ip`, `processador`, `memoria`, `patrimonial`, `dominio`, `status`, `iduser`, `descricao`, `marca`, `modelo`, `servicetag`, `NF`, `serial`, `idtipo`, `portas`, `iddpto`, `tipoarmazenamento`, `tamanhoarmazenamento`, `KVA`, `Ventrada`, `Vsaida`, `DTcompra`, `DTinstalacao`, `DTultManut`, `chaveRSA`, `tag`, `proprietario`) VALUES
+(1, 'TI03', '192.168.0.154', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', 1, 'Diego', 'Máquina Montada', 'SYMA', '0', NULL, 0, 1, NULL, 1, 'SSD', '240', 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', 0, NULL, NULL),
+(3, 'TI02', '192.168.0.157', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Danillo', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'TI04', '192.168.0.152', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Thiago', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -295,8 +300,7 @@ ALTER TABLE `dpto`
 -- Indexes for table `equipamento`
 --
 ALTER TABLE `equipamento`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idtipo` (`idtipo`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `equipamentosoftware`
@@ -336,7 +340,7 @@ ALTER TABLE `dpto`
 -- AUTO_INCREMENT for table `equipamento`
 --
 ALTER TABLE `equipamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `equipamentosoftware`
@@ -361,16 +365,6 @@ ALTER TABLE `tipo`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `equipamento`
---
-ALTER TABLE `equipamento`
-  ADD CONSTRAINT `equipamento_ibfk_1` FOREIGN KEY (`idtipo`) REFERENCES `equipamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

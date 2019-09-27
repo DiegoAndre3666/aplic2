@@ -25,6 +25,7 @@
     $DTinstalacao = $_POST['DTinstalacao'];
     $DTultManut = $_POST['DTultManut'];
     $chaveRSA = $_POST['chaveRSA'];
+    $idtipo = $_POST['tipo'];
 
     $con = getConexao();
     $sql = "insert into equipamento(
@@ -41,6 +42,9 @@
                     NF,
                     portas,
                     descricao,
+                    idtipo,
+                    tipoarmazenamento,
+                    tamanhoarmazenamento,
                     status)values(
                     '$nome_host',
                     '$ip',
@@ -55,12 +59,15 @@
                     '$NF',
                     '$portas',
                     '$descricao',
+                    '$idtipo',
+                    '$tipoarmazenamento',
+                    '$tamanhoarmazenamento',
                     '$status')";
   
     //mysqli_query($con,$sql);
     if(!mysqli_query($con, $sql)){
         echo ("Erro" . mysqli_errno($con));
     }
-     header("Location: listaequipamento.php");
+     header("Location: listaequip.php");
 
 ?>

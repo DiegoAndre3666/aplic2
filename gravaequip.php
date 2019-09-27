@@ -26,6 +26,7 @@
     $DTultManut = $_POST['DTultManut'];
     $chaveRSA = $_POST['chaveRSA'];
     $idtipo = $_POST['tipo'];
+    $tag = $_POST['tag'];
 
     $con = getConexao();
     $sql = "insert into equipamento(
@@ -45,7 +46,17 @@
                     idtipo,
                     tipoarmazenamento,
                     tamanhoarmazenamento,
-                    status)values(
+                    Ventrada,
+                    Vsaida,
+                    chaveRSA,
+                    DTultManut,
+                    DTinstalacao,
+                    tag,
+                    DTcompra,
+                    KVA,
+                    proprietario,
+                    status
+                    )values(
                     '$nome_host',
                     '$ip',
                     '$processador',
@@ -62,6 +73,15 @@
                     '$idtipo',
                     '$tipoarmazenamento',
                     '$tamanhoarmazenamento',
+                    '$Ventrada',
+                    '$Vsaida',
+                    '$chaveRSA',
+                    '$DTultManut',
+                    '$DTintalacao',
+                    '$KVA',
+                    '$proprietario',
+                    '$tag',
+                    '$DTcompra',
                     '$status')";
   
     //mysqli_query($con,$sql);

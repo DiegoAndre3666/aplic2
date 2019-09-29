@@ -78,15 +78,15 @@
                     '$chaveRSA',
                     '$DTultManut',
                     '$DTintalacao',
-                    '$KVA',
-                    '$proprietario',
                     '$tag',
                     '$DTcompra',
+                    '$KVA',
+                    '$proprietario',
                     '$status')";
   
-    //mysqli_query($con,$sql);
+    mysqli_query($con,$sql);
     if(!mysqli_query($con, $sql)){
-        echo ("Erro" . mysqli_errno($con));
+      echo ("Erro" . mysqli_errno($con));
     }
      header("Location: listaequip.php");
 

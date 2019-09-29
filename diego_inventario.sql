@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Set-2019 às 15:35
+-- Generation Time: 27-Set-2019 às 17:58
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -158,8 +158,8 @@ CREATE TABLE `equipamento` (
   `tipoarmazenamento` varchar(30) DEFAULT NULL,
   `tamanhoarmazenamento` varchar(30) DEFAULT NULL,
   `KVA` int(11) DEFAULT NULL,
-  `Ventrada` int(5) DEFAULT NULL,
-  `Vsaida` int(5) DEFAULT NULL,
+  `Ventrada` varchar(25) DEFAULT NULL,
+  `Vsaida` varchar(25) DEFAULT NULL,
   `DTcompra` date DEFAULT NULL,
   `DTinstalacao` date DEFAULT NULL,
   `DTultManut` date DEFAULT NULL,
@@ -173,7 +173,7 @@ CREATE TABLE `equipamento` (
 --
 
 INSERT INTO `equipamento` (`id`, `nome_host`, `ip`, `processador`, `memoria`, `patrimonial`, `dominio`, `status`, `iduser`, `descricao`, `marca`, `modelo`, `servicetag`, `NF`, `serial`, `idtipo`, `portas`, `iddpto`, `tipoarmazenamento`, `tamanhoarmazenamento`, `KVA`, `Ventrada`, `Vsaida`, `DTcompra`, `DTinstalacao`, `DTultManut`, `chaveRSA`, `tag`, `proprietario`) VALUES
-(1, 'TI03', '192.168.0.154', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', 1, 'Diego', 'Máquina Montada', 'SYMA', '0', NULL, 0, 1, NULL, 1, 'SSD', '240', 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', 0, NULL, NULL),
+(1, 'TI03', '192.168.0.154', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', 1, 'Diego', 'Máquina Montada', 'SYMA', '0', NULL, 0, 1, NULL, 1, 'SSD', '240', 0, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, NULL, NULL),
 (3, 'TI02', '192.168.0.157', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Danillo', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'TI04', '192.168.0.152', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Thiago', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 

@@ -56,7 +56,7 @@ $sql2 = "select * from tiposoftware order by nome";
                                     }
                                 }
                             ?>
-                            <input name="tipo" type="hidden" value="<?php echo $tiposoftware; ?>"/>
+                            <input name="tiposoftware" type="hidden" value="<?php echo $tiposoftware; ?>"/>
                     </td>
 
                 </tr>

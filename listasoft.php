@@ -8,7 +8,7 @@
     if(isset($_GET['tiposoftware'])){
         $tiposoftware=$_GET['tiposoftware'];
     }else{
-        $tipo='0';
+        $tiposoftware='0';
     }
     if(isset($_GET['funcao'])){
         $funcao=$_GET['funcao'];
@@ -25,7 +25,7 @@
         }
     $rs = mysqli_query($con,$sql);
     
-    $sql2 = "select * from tiposoftware order by nome";
+    $sql2 = "select * from tiposoftware order by id";
             $rs2 = mysqli_query($con,$sql2);
 
             $sql3 = "select * from camposoft where idtiposoftware = '$tiposoftware' order by camposoft.idorder";
@@ -61,7 +61,7 @@
 
         </form>
         <a href="formsoft.php" class="btn"> + NOVO SOFTWARE </a>
-        <a href="InventarioPDF.php?id=<?php echo $tiposoftware;?>" class="btn"> Gerar PDF </a>
+        <a href="softwarePDF.php?id=<?php echo $tiposoftware;?>" class="btn"> Gerar PDF </a>
         <p></P>
         <?php
         if($funcao=='abrir'){

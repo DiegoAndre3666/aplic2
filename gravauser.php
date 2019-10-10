@@ -28,7 +28,7 @@
     echo "<script>alert('Usuário cadastrado com Sucesso!');</script>";
       // echo 'vou gravar';
    
-    $sql= "insert into usuarios(nome,email,ramal,acesso,iddpto)values('".$name."','".$email."','".$ramal."','".$acesso."','".$iddpto."')";
+    $sql= "insert into usuarios(nome,email,ramal,senha,acesso,iddpto)values('".$name."','".$email."','".$ramal."','0','".$acesso."','".$iddpto."')";
     mysqli_query($con,$sql);
     header("Location: listauser.php");
    }

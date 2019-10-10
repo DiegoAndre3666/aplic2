@@ -37,6 +37,7 @@
 ?>
     <div class="container">
         <form action="listaequipamento.php"method="POST">
+        
             <input type="text" name="palavra" size="30"/>
             <input class='btn' type="submit" name="bt" value="buscar"/>
         <a class="btn" href='listaequipamento.php'>Cancelar</a><br><br>
@@ -49,8 +50,10 @@
                                     $nome = $row['nome'];
                                     if($id==$tipo){
                                     echo"<option value = '?tipo=$id&funcao=abrir' selected>$nome</option> ";
+                                    
                                     }else{
                                         echo"<option value = '?tipo=$id&funcao=abrir' >$nome</option> ";
+                                        $Slc = '?tipo=$id&funcao=abrir' ;
                                     }
                                 }
                             ?>
@@ -58,6 +61,7 @@
 
         </form>
         <a href="formequip.php" class="btn"> + NOVO EQUIMMENTO </a>
+        <a href="InventarioPDF.php?id=<?php echo $tipo;?>" class="btn"> Gerar PDF </a>
         <p></P>
         <?php
         if($funcao=='abrir'){
@@ -102,4 +106,8 @@
         echo"Total de Equipamentos: ";
     }
     echo"</div></body></html>";
-?>    
+   
+
+    
+    ?>    
+    

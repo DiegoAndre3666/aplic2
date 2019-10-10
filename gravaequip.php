@@ -28,7 +28,7 @@
     $idtipo = $_POST['tipo'];
     $tag = $_POST['tag'];
 
-    $con = getConexao();
+    //$con = getConexao();
     $sql = "insert into equipamento(
                     nome_host,
                     ip,
@@ -84,10 +84,10 @@
                     '$proprietario',
                     '$status')";
   
-    mysqli_query($con,$sql);
-    if(!mysqli_query($con, $sql)){
-      echo ("Erro" . mysqli_errno($con));
-    }
+    //mysqli_query($con,$sql);
+    //if(!mysqli_query($con, $sql)){
+      //  echo ("Erro" . mysqli_errno($con));
+    //}
      header("Location: listaequip.php");
 
 ?>

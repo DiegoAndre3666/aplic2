@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Set-2019 às 17:58
--- Versão do servidor: 10.1.40-MariaDB
--- versão do PHP: 7.3.5
+-- Generation Time: 10-Out-2019 às 04:06
+-- Versão do servidor: 10.1.38-MariaDB
+-- versão do PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -97,6 +97,39 @@ INSERT INTO `campoform` (`idtipo`, `campo`, `nomecampo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `camposoft`
+--
+
+CREATE TABLE `camposoft` (
+  `idtiposoftware` int(11) NOT NULL,
+  `camposoft` varchar(45) NOT NULL,
+  `campoformsoft` varchar(45) DEFAULT NULL,
+  `idorder` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `camposoft`
+--
+
+INSERT INTO `camposoft` (`idtiposoftware`, `camposoft`, `campoformsoft`, `idorder`) VALUES
+(1, 'chave', 'Chave', 3),
+(1, 'descricao', 'Descrição', 2),
+(1, 'nome', 'Nome', 1),
+(1, 'nome_host', 'Nome Host', 5),
+(1, 'qtd', 'Quantidade', 7),
+(1, 'status', 'Status', 4),
+(1, 'volume', 'Volume', 6),
+(2, 'chave', 'Chave', 3),
+(2, 'descricao', 'Descrição', 2),
+(2, 'nome', 'Nome', 1),
+(2, 'nome_host', 'Nome Host', 5),
+(2, 'qtd', 'Quantidade', 7),
+(2, 'status', 'Status', 4),
+(2, 'volume', 'Volume', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `dpto`
 --
 
@@ -173,9 +206,10 @@ CREATE TABLE `equipamento` (
 --
 
 INSERT INTO `equipamento` (`id`, `nome_host`, `ip`, `processador`, `memoria`, `patrimonial`, `dominio`, `status`, `iduser`, `descricao`, `marca`, `modelo`, `servicetag`, `NF`, `serial`, `idtipo`, `portas`, `iddpto`, `tipoarmazenamento`, `tamanhoarmazenamento`, `KVA`, `Ventrada`, `Vsaida`, `DTcompra`, `DTinstalacao`, `DTultManut`, `chaveRSA`, `tag`, `proprietario`) VALUES
-(1, 'TI03', '192.168.0.154', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', 1, 'Diego', 'Máquina Montada', 'SYMA', '0', NULL, 0, 1, NULL, 1, 'SSD', '240', 0, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, NULL, NULL),
-(3, 'TI02', '192.168.0.157', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Danillo', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'TI04', '192.168.0.152', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Thiago', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 'TI03', '192.168.0.154', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', 1, 'Diego', 'Máquina Montada', 'SYMA', '0', NULL, 0, 1, NULL, 1, 'SSD', '240', 0, 'Bivolt', NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, NULL, NULL),
+(3, 'TI02', '192.168.0.157', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Danillo', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, 'Bivolt', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'TI04', '192.168.0.152', 'Intel Core I5', '8 GB', '0', 'Sim', 'Ativo', NULL, 'Máquina do Thiago', 'Maquina Montada', 'SYMA', '0', 0, 0, 1, 0, 1, 'SSD', '240', NULL, 'Bivolt', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, '', 'Local', '', '', '', '', 'Ativo', NULL, 'Balança', 'Samsung', 'M4020', '', 0, 0, 2, 0, 2, '', '', 0, '110', '', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, 'Top Toner');
 
 -- --------------------------------------------------------
 
@@ -207,30 +241,13 @@ CREATE TABLE `software` (
   `id` int(11) NOT NULL,
   `nome` varchar(45) DEFAULT NULL,
   `chave` varchar(45) DEFAULT NULL,
-  `status` varchar(100) NOT NULL,
-  `volume` enum('s','n') NOT NULL,
-  `quantidade` int(100) NOT NULL,
-  `tiposoftware` int(1) NOT NULL,
-  `descricao` text NOT NULL
+  `descricao` varchar(45) DEFAULT NULL,
+  `qtd` int(11) DEFAULT NULL,
+  `volume` varchar(45) DEFAULT NULL,
+  `idtiposoftware` int(11) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `nome_host` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `software`
---
-
-INSERT INTO `software` (`id`, `nome`, `chave`, `status`, `volume`, `quantidade`, `tiposoftware`, `descricao`) VALUES
-(1, NULL, NULL, '', '', 0, 1, 'Windows 7 pro x64'),
-(2, NULL, NULL, '', '', 0, 1, 'Windows 7 pro x86'),
-(3, NULL, NULL, '', '', 0, 1, 'Windows 8.0 pro x64'),
-(4, NULL, NULL, '', '', 0, 1, 'Windows 8.1 pro x64'),
-(5, NULL, NULL, '', '', 0, 1, 'Windows 10 pro x64'),
-(6, NULL, NULL, '', '', 0, 1, 'Windows 10 pro x86'),
-(7, NULL, NULL, '', '', 0, 1, 'Windows 8.0 pro x86'),
-(8, NULL, NULL, '', '', 0, 1, 'Windows 8.1 pro x86'),
-(9, NULL, NULL, '', '', 0, 2, 'Home and Businness 2013'),
-(10, NULL, NULL, '', '', 0, 2, 'Home and Businness 2010'),
-(11, NULL, NULL, '', '', 0, 2, 'Standard 2013'),
-(12, NULL, NULL, '', '', 0, 2, 'Office 365 Pro Plus');
 
 -- --------------------------------------------------------
 
@@ -254,6 +271,28 @@ INSERT INTO `tipo` (`id`, `nome`) VALUES
 (4, 'NoBreack'),
 (5, 'DVR'),
 (6, 'Relógio Ponto');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tiposoftware`
+--
+
+CREATE TABLE `tiposoftware` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `descricao` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tiposoftware`
+--
+
+INSERT INTO `tiposoftware` (`id`, `nome`, `descricao`) VALUES
+(1, 'Windowns', NULL),
+(2, 'Office', NULL),
+(3, 'Linux', NULL),
+(4, 'Server', NULL);
 
 -- --------------------------------------------------------
 
@@ -291,6 +330,12 @@ ALTER TABLE `campoform`
   ADD PRIMARY KEY (`idtipo`,`campo`);
 
 --
+-- Indexes for table `camposoft`
+--
+ALTER TABLE `camposoft`
+  ADD PRIMARY KEY (`idtiposoftware`,`camposoft`);
+
+--
 -- Indexes for table `dpto`
 --
 ALTER TABLE `dpto`
@@ -321,6 +366,12 @@ ALTER TABLE `tipo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tiposoftware`
+--
+ALTER TABLE `tiposoftware`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -340,7 +391,7 @@ ALTER TABLE `dpto`
 -- AUTO_INCREMENT for table `equipamento`
 --
 ALTER TABLE `equipamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `equipamentosoftware`
@@ -352,13 +403,19 @@ ALTER TABLE `equipamentosoftware`
 -- AUTO_INCREMENT for table `software`
 --
 ALTER TABLE `software`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tipo`
 --
 ALTER TABLE `tipo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tiposoftware`
+--
+ALTER TABLE `tiposoftware`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuarios`

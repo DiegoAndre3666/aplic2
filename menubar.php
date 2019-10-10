@@ -9,14 +9,14 @@
   <li><a href="formequip.php">Cadastro de Equipamentos</a></li>
   <li><a href="formsoftware.php">Cadastro de Software</a></li>
   <li class="divider"></li>
-  <li><a href="formuser.php">Cadastro de Usuários</a></li>
+  <li><a href="menu.php">Cadastro de Usuários</a></li>
 </ul>
 
 
 <ul id="itens_menu_relatorios" class="dropdown-content">
-  <li><a href="listaequip.php">Relatório de Equipamentos</a></li>
-  <li><a href="listasoftware.php">Relatório de Software</a></li>
-  <li><a href="listauser.php">Relatório de Usuários</a></li>
+  <li><a href="listaequipamento.php">Relatório de Equipamentos</a></li>
+  <li><a href="listasoft.php">Relatório de Software</a></li>
+  <li><a href="menu.php">Relatório de Usuários</a></li>
 </ul>
 
 
